@@ -57,8 +57,8 @@
             "name": "flutter_bluetooth.jpg",
             "type": "file",
             "file": {
-              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/75205aa9-bbc8-4ffc-a7c7-facff9d51048/flutter_bluetooth.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T082751Z&X-Amz-Expires=3600&X-Amz-Signature=2e8be4a768048738d1477add26e5a547c7acb41d18744727e0931ee4dcad9663&X-Amz-SignedHeaders=host&x-id=GetObject",
-              "expiry_time": "2023-11-14T09:27:51.925Z"
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/75205aa9-bbc8-4ffc-a7c7-facff9d51048/flutter_bluetooth.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T084236Z&X-Amz-Expires=3600&X-Amz-Signature=7f1847a06648ee0771acba30254737122d322abfe757984985c95baeaf2c0193&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-11-14T09:42:36.873Z"
             }
           }
         ]

@@ -6,18 +6,22 @@ import "aos/dist/aos.css";
 import { useEffect } from 'react';
 import project from "@/tmp/projects.json"
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 export default function ClientProjects() {
-    useEffect(() => {
-        AOS.init({
-        });
-    }, [])
+    // const router = useRouter();
     const path = ["Blog"]
     const img = [
         "/mysql-thumbnail.jpg",
         "/flutterBLE-thumbnail.jpg",
         "/movielink-thumnail.jpg",
     ]
+
+    useEffect(() => {
+        AOS.init({
+        });
+    }, [])
+
     return (
         <div className="">
             <Navbar />

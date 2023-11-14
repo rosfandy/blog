@@ -5,26 +5,21 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
-import Link from 'next/link';
 import DropdownMenu from './DropDown';
 import Navbar from '@/components/Navbar';
 import "./notion.css"
-import javascript from 'highlight.js/lib/languages/javascript';
 import "./hightlight.css";
 import hljs from "highlight.js";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { IKImage, IKVideo, IKContext, IKUpload } from 'imagekitio-react'
 
 export default function LayoutProject({ path, datas, img }: { path: string[], datas: string, img: string }) {
     const content = JSON.parse(datas)
     useEffect(() => {
         // Function to handle copying content to clipboard
         const handleCopyToClipboard = (event: any) => {
-
             const selectedElement = event.target;
             const contentToCopy = selectedElement.textContent;
-
 
             // // Create a temporary textarea element to copy text to clipboard
             const tempTextarea = document.createElement('textarea');
