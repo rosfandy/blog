@@ -6,7 +6,7 @@ interface Renderer {
     render(el: any): Promise<string>; // Replace `any` with the actual type of `el` if known
 }
 
-const getNotionHTML = async (blocks: any[], renderer: Renderer): Promise<string> => {
+const getNotionHTML = async (blocks: any[], renderer: Renderer, directory: String): Promise<string> => {
     let combinedHTML = '';
 
     for (let index = 0; index < blocks.length; index++) {
@@ -27,7 +27,7 @@ const getNotionHTML = async (blocks: any[], renderer: Renderer): Promise<string>
                     const imageData = Buffer.from(response.data);
 
                     // Save the image to a file
-                    fs.writeFileSync(`./public/${newSrc}`, imageData);
+                    fs.writeFileSync(directory + newSrc, imageData);
                 } catch (error) {
                     console.log(error);
                 }

@@ -1,0 +1,160 @@
+[
+  {
+    "content": "\n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Getting Started\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                Hocuspocus dibangun menggunakan <a href=\"https://github.com/yjs/yjs/blob/master/README.md\" class=\"notion-text-href\">YJS</a><i class=\"notion-text-italic\">. </i>Hocuspocus menyediakan function yang telah di extend dari  <a href=\"https://github.com/yjs/yjs/blob/master/README.md\" class=\"notion-text-href\">YJS</a> untuk lebih mudah digunakan dalam menghandle <i class=\"notion-text-italic\">server-side </i>dari Editor khusunya dalam <i class=\"notion-text-italic\">collaboration</i>.\n            </p>\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Intro\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                Dalam <i class=\"notion-text-italic\">Collaboration</i>, <a href=\"https://github.com/yjs/yjs/blob/master/README.md\" class=\"notion-text-href\">YJS</a> dalam hal ini <a href=\"https://tiptap.dev/hocuspocus/introduction\" class=\"notion-text-href\">Hocuspocus</a> sudah meng-handle secara garis besar kebutuhan dalam <i class=\"notion-text-italic\">Collaboration </i>seperti conflit resolution, dll<i class=\"notion-text-italic\">.</i>  <a href=\"https://github.com/yjs/yjs/blob/master/README.md\" class=\"notion-text-href\">YJS</a> memang dibuat sebagai <i class=\"notion-text-italic\">open-source</i> library untuk <i class=\"notion-text-italic\">Collaboration Conflict Handler</i> berbasis <code class=\"notion-text-code\">CRDT</code>. Creator <a href=\"https://github.com/yjs/yjs/blob/master/README.md\" class=\"notion-text-href\">YJS</a> membuat library ini agar para developer tidak perlu memusingkan <i class=\"notion-text-italic\">server-side </i>ketika membangun <i class=\"notion-text-italic\">Collaboration App</i>.\n            </p>\n        \n            <p>\n                Source : <a href=\"https://blog.kevinjahns.de/are-crdts-suitable-for-shared-editing/\" class=\"notion-text-href\">https://blog.kevinjahns.de/are-crdts-suitable-for-shared-editing/</a>\n            </p>\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Setup Installation\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Server-Side\n            </h3>\n        \n            <p>\n                1. Setup Express Server\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-typescript\">import express from \"express\";\nimport { WebSocketServer } from \"ws\";\nimport http from \"http\";\n\nconst app = express();\nconst httpServer = http.createServer(app)</code></pre>\n                \n            </div>\n        \n            <p>\n                2. Init Hocuspocus as <i class=\"notion-text-italic\">WebSocket Connection</i>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-typescript\">import { Server } from '@hocuspocus/server';\n\nconst editorServer = http.createServer(app);\nconst hocusServer = Server.configure({\n\tname: 'editorServer',\n\tasync onConnect(data: any) {\n     const { connection } = data\n     console.log(`Total connect in ${data.documentName} : ${hocusServer.getConnectionsCount() + 1}`)\n  },\n   async onChange(data: any) {\n      const wsID = data.socketId\n      console.log(`Client ${wsID} update doc in \"${data.documentName}\"`)\n   },\n    async onDisconnect(data: any) {\n      console.log('Client Disconnected !')\n    },\n})</code></pre>\n                \n            </div>\n        \n            <p>\n                3. Bind <i class=\"notion-text-italic\">hocuspocus </i>on <i class=\"notion-text-italic\">express </i>as <i class=\"notion-text-italic\">websocket connection</i>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-typescript\">const editorServer = http.createServer(app);\n  editorServer.listen(1234, function () {\n    const wsServer = new WebSocketServer({\n      server: editorServer,\n    });\n\n    wsServer.on('connection', (req, res) =&#62; {\n      hocusServer.handleConnection(req, res);\n    })\n\n    console.log(`Editor server is running on ${host}:1234``);\n  });</code></pre>\n                \n            </div>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Client-Side\n            </h3>\n        \n            <p>\n                1. Import Module\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-typescript\">import { HocuspocusProvider } from '@hocuspocus/provider'\nimport * as Y from 'yjs'\nconst ydoc = new Y.Doc()\n\nthis.provider = new HocuspocusProvider({\n            url: 'wss://localhost:1234',\n            name: this.documentId, // nama dokumen\n            document: ydoc,\n            token: 'test-token', // for auth\n})</code></pre>\n                \n            </div>\n        \n            <p>\n                2. Connect editor to <i class=\"notion-text-italic\">Hocuspocus </i>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-typescript\">import Collaboration from '@tiptap/extension-collaboration'\n\nthis.editor = new Editor({\n            extensions: [\n                Collaboration.configure({\n                    document: this.provider.document,\n                }),\n            ],\n})</code></pre>\n                \n            </div>\n        \n            <p>\n                3. Add Cursor for Collaboration\n            </p>\n        \n            <p>\n                <code class=\"notion-text-code\">editor.js</code>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-typescript\">import CollaborationCursor from '@tiptap/extension-collaboration-cursor'\nimport { Editor, EditorContent } from '@tiptap/vue-3'\n\nthis.editor = new Editor({\n            extensions: [\n                //...other extensions,\n\t\t\t\tCollaborationCursor.configure({\n                    provider: this.provider,\n                    user: {\n\t\t\t                name: 'anonymous',\n\t\t\t                color: '#ffffff',\n\t\t\t            },\n                }),\n            ],\n})</code></pre>\n                \n            </div>\n        \n            <p>\n                <code class=\"notion-text-code\">style.css</code>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-css\">.collaboration-cursor__caret {\n    position: relative;\n    margin-left: -1px;\n    margin-right: -1px;\n    border-left: 1px solid #0D0D0D;\n    border-right: 1px solid #0D0D0D;\n    word-break: normal;\n    pointer-events: none;\n}\n.collaboration-cursor__label {\n    position: absolute;\n    top: -1.4em;\n    left: -1px;\n    font-size: 12px;\n    font-style: normal;\n    font-weight: 600;\n    line-height: normal;\n    user-select: none;\n    color: #0D0D0D;\n    padding: 0.1rem 0.3rem;\n    border-radius: 3px 3px 3px 0;\n    white-space: nowrap;\n}</code></pre>\n                \n            </div>\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Awareness\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                Awareness adalah segala perubahan user dalam editor ( document ). Mencakup jumlah user, coordinate cursor, dll. Binding data user juga dilakukan dalam <i class=\"notion-text-italic\">awareness. </i>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-javascript\">// get total user dalam document \nthis.provider.awareness.on('change', () =&#62; {\n\t\t\tconst awareness = this.provider.awareness.getStates()\n\t\t\tconst users = awareness.size\n})\n\n// get status ketika user mengakses room \nthis.provider.on('status', evt =&#62; {\n            console.log('status: ', evt.status)\n})</code></pre>\n                \n            </div>\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                Source : <a href=\"https://tiptap.dev/hocuspocus/introduction\" class=\"notion-text-href\">https://tiptap.dev/hocuspocus/introduction</a>\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                This article was made using <a href=\"http://notion.so/\" class=\"notion-text-href\">notion.so</a> ❣️\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        ",
+    "properties": {
+      "Tags": {
+        "id": "%60YN%5E",
+        "type": "multi_select",
+        "multi_select": [
+          {
+            "id": "722b5ecb-7d66-4c0d-95cb-046264c755f3",
+            "name": "backend",
+            "color": "blue"
+          },
+          {
+            "id": "3a75f904-18dc-4c26-9885-e4b2b232aa92",
+            "name": "crdt",
+            "color": "gray"
+          },
+          {
+            "id": "653ccfa5-d24b-4239-a3df-735b6498e615",
+            "name": "collaboration",
+            "color": "brown"
+          }
+        ]
+      },
+      "path": {
+        "id": "e%3CJu",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "hocuspocus",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "hocuspocus",
+            "href": null
+          }
+        ]
+      },
+      "Created by": {
+        "id": "lt%3BJ",
+        "type": "created_by",
+        "created_by": {
+          "object": "user",
+          "id": "a3bf067d-0428-4d79-ba49-8f16f0b562b2"
+        }
+      },
+      "thumbnail": {
+        "id": "ob%60s",
+        "type": "files",
+        "files": [
+          {
+            "name": "eea6972d7a57782fe4aaa3ec4c7df4943d19091e_2_1035x450.png",
+            "type": "file",
+            "file": {
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/50f8929f-d5f1-4b09-a81c-a57de2da4e71/eea6972d7a57782fe4aaa3ec4c7df4943d19091e_2_1035x450.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T112036Z&X-Amz-Expires=3600&X-Amz-Signature=20243eaa5c3ffc64668b51fb39ef588db011e330e4d4120aa7243e7af5281b2b&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-11-14T12:20:36.533Z"
+            }
+          }
+        ]
+      },
+      "Status": {
+        "id": "qrai",
+        "type": "status",
+        "status": {
+          "id": "K[FO",
+          "name": "Published",
+          "color": "green"
+        }
+      },
+      "Slug": {
+        "id": "tg%3B%3E",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "hocuspocus",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "hocuspocus",
+            "href": null
+          }
+        ]
+      },
+      "title": {
+        "id": "zG~e",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Hocuspocus For Conflit Handler Collaboration App",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Hocuspocus For Conflit Handler Collaboration App",
+            "href": null
+          }
+        ]
+      },
+      "createdAt": {
+        "id": "~%3C%7BT",
+        "type": "date",
+        "date": {
+          "start": "2023-11-14",
+          "end": null,
+          "time_zone": null
+        }
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "hocuspocus",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "hocuspocus",
+            "href": null
+          }
+        ]
+      }
+    }
+  }
+]

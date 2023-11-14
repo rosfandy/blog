@@ -1,0 +1,155 @@
+[
+  {
+    "content": "\n            <h1 class=\"notion-heading_1 notion-color-default\">\n                Trailer movie app with ReactJS\n            </h1>\n        \n            <hr class=\"notion-divider\" />\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                API\n            </h3>\n        \n            <p>\n                The API used for this <a href=\"https://movielink.netlify.app/\" class=\"notion-text-href\">Project</a> is <a href=\"https://www.themoviedb.org/\" class=\"notion-text-href\">TMDb API</a>, its an open source API that contains a collection of the latest movie or series trailers. The <a href=\"https://www.themoviedb.org/\" class=\"notion-text-href\">TMDb API,</a> short for The Movie Database API, is a tool for developers to access a wide range of movie and TV show information. It offers details like titles, release dates, genres, and ratings\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Framework\n            </h3>\n        \n            <p>\n                Framework used in this project are <a href=\"https://react.dev/\" class=\"notion-text-href\">ReactJS</a> and <a href=\"https://vitejs.dev/\" class=\"notion-text-href\">ViteJS</a>\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Styling\n            </h3>\n        \n            <p>\n                In this project, I used Tailwind for styling. <a href=\"https://tailwindcss.com/\" class=\"notion-text-href\">Tailwind CSS</a> offers a straightforward way to design user interfaces with pre-defined classes, making it easy to create a clean and polished look. This choice has allowed us to focus on the project's functionality while still achieving a modern and appealing design.\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Data Fetching\n            </h3>\n        \n            <p>\n                In ReactJS, fetching data means getting information from different sources like APIs or databases and using it in our app. We can do this using tools like the <code class=\"notion-text-code\"><b class=\"notion-text-bold\">fetch</b></code> function or libraries like Axios. React's hooks, like <code class=\"notion-text-code\"><b class=\"notion-text-bold\">useState</b></code> and <code class=\"notion-text-code\"><b class=\"notion-text-bold\">useEffect</b></code>, help us manage the data and when to fetch it. This way, we keep our app dynamic and always showing the latest info, giving users a smooth experience.\n            </p>\n        \n            <p>\n                <code class=\"notion-text-code\"><b class=\"notion-text-bold\">tmbd.js</b></code>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-javascript\">import axios from 'axios';\na\nexport default axios.create({\n    baseURL: 'https://api.themoviedb.org/3',\n    headers: {\n        Accept: 'application/json',\n    },\n    params: {\n        api_key: '1887f10c3d2cd8bb12897cba9c071f32',\n        language: 'en-ID',\n        append_to_response: 'videos',\n    },\n});</code></pre>\n                \n            </div>\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                <code class=\"notion-text-code\"><b class=\"notion-text-bold\">ListMovie.jsx</b></code>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-javascript\">import tmdb from './tmdb';\n\nexport default function ListMovie() {\n    const { pathname } = useLocation();\n\n    const [movies, setMovies] = useState([]);\n    const [latestMovie, setLatestMovies] = useState([]);\n    const [tvSeries, setTvSeries] = useState([]);\n    const [selectedMovie, setSelectedMovie] = useState({});\n\n    useEffect(() =&#62; {\n        const fetchMovies = async () =&#62; {\n            const {\n                data: { results },\n            } = await tmdb.get('trending/movie/day');\n            const dataTv = await tmdb.get('/trending/tv/week');\n            const dataLatestMovie = await tmdb.get('/movie/now_playing');\n            setLatestMovies(dataLatestMovie.data.results);\n            setMovies(results);\n            setTvSeries(dataTv.data.results);\n        };\n        fetchMovies();\n    }, [pathname]);\n\n    return (\n\t\t\t// component\n\t\t)\n\n}</code></pre>\n                \n            </div>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Snapshots \n            </h3>\n        \n            <p>\n                Visit for more <a href=\"https://movielink.netlify.app/\" class=\"notion-text-href\">Movielink App</a> or u can visit my <a href=\"https://github.com/rosfandy/movielink-react-app\" class=\"notion-text-href\">github </a>for this project\n            </p>\n        \n            <figure class=\"notion-image\">\n                <img src=\"/dataImg-17.jpg\"/>\n                \n            </figure>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                This article was made using <a href=\"http://notion.so/\" class=\"notion-text-href\">notion.so</a> ❣️\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                \n            </p>\n        ",
+    "properties": {
+      "Tags": {
+        "id": "%60YN%5E",
+        "type": "multi_select",
+        "multi_select": [
+          {
+            "id": "12d12bac-c37a-4726-9b1d-23409dff644d",
+            "name": "frontend",
+            "color": "yellow"
+          },
+          {
+            "id": "d2d51a7a-e236-4eb8-abb5-63fd8b25faed",
+            "name": "reactjs",
+            "color": "brown"
+          }
+        ]
+      },
+      "path": {
+        "id": "e%3CJu",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "movielink",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "movielink",
+            "href": null
+          }
+        ]
+      },
+      "Created by": {
+        "id": "lt%3BJ",
+        "type": "created_by",
+        "created_by": {
+          "object": "user",
+          "id": "a3bf067d-0428-4d79-ba49-8f16f0b562b2"
+        }
+      },
+      "thumbnail": {
+        "id": "ob%60s",
+        "type": "files",
+        "files": [
+          {
+            "name": "movielink.png",
+            "type": "file",
+            "file": {
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/d7f95a49-e348-460d-be52-64a4e6d70597/movielink.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T112050Z&X-Amz-Expires=3600&X-Amz-Signature=d15c107ea01bcb6976c95b764bd557c251cfe93a6932c17850d4554ffb221286&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-11-14T12:20:50.196Z"
+            }
+          }
+        ]
+      },
+      "Status": {
+        "id": "qrai",
+        "type": "status",
+        "status": {
+          "id": "K[FO",
+          "name": "Published",
+          "color": "green"
+        }
+      },
+      "Slug": {
+        "id": "tg%3B%3E",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "movielink",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "movielink",
+            "href": null
+          }
+        ]
+      },
+      "title": {
+        "id": "zG~e",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Trailer Movie App with reactjs using TMDb API",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Trailer Movie App with reactjs using TMDb API",
+            "href": null
+          }
+        ]
+      },
+      "createdAt": {
+        "id": "~%3C%7BT",
+        "type": "date",
+        "date": {
+          "start": "2023-10-14",
+          "end": null,
+          "time_zone": null
+        }
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "movielink",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "movielink",
+            "href": null
+          }
+        ]
+      }
+    }
+  }
+]

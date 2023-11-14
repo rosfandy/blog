@@ -7,13 +7,13 @@ import cheerio from 'cheerio';
 import getNotionHTML from "../../renderHtml";
 
 export default async function ServerComponent() {
-    const post = await fetchPageBySlug("movielink");
+    const post = await fetchPageBySlug("editor-app");
     if (!post) notFound();
 
     const imgUrl = post.properties.thumbnail.files[0].file.url;
 
     // Specify the directory path
-    const directory = './public/movielink/';
+    const directory = './public/editor-app/';
 
     try {
         // Check if the directory exists, create it if not
@@ -26,7 +26,7 @@ export default async function ServerComponent() {
         const imageData = Buffer.from(response.data, 'binary');
 
         // Save the image to a file
-        fs.writeFileSync(directory + 'movielink-thumbnail.jpg', imageData);
+        fs.writeFileSync(directory + 'editor-app-thumbnail.jpg', imageData);
     } catch (error) {
         console.log(error);
     }
@@ -46,5 +46,5 @@ export default async function ServerComponent() {
         }
     ];
 
-    fs.writeFileSync(directory + 'movielink.json', JSON.stringify(jsonContent, null, 2));
+    fs.writeFileSync(directory + 'editor-app.json', JSON.stringify(jsonContent, null, 2));
 }

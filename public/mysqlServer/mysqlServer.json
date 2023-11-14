@@ -30,7 +30,7 @@
           {
             "type": "text",
             "text": {
-              "content": "mysql-server",
+              "content": "mysqlServer",
               "link": null
             },
             "annotations": {
@@ -41,7 +41,7 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "mysql-server",
+            "plain_text": "mysqlServer",
             "href": null
           }
         ]
@@ -59,11 +59,11 @@
         "type": "files",
         "files": [
           {
-            "name": "269-2693188_today-mysql-mariadb.png",
+            "name": "mariadb-and-mysql (1).png",
             "type": "file",
             "file": {
-              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/1d801760-ea69-4bf0-97c6-68a17ef6d128/269-2693188_today-mysql-mariadb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T085956Z&X-Amz-Expires=3600&X-Amz-Signature=3d1b317af7f0227a15841bb5f902d668f10835db862620e2ec4bf4f9307dbb0d&X-Amz-SignedHeaders=host&x-id=GetObject",
-              "expiry_time": "2023-11-14T09:59:56.102Z"
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/9ecf47df-59a7-48a1-af8d-275a6e071515/mariadb-and-mysql_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T112040Z&X-Amz-Expires=3600&X-Amz-Signature=d74e8d45f2c1c8f1132b7d5a6965904fc9f56bc17223ffecd357da5ea78709ce&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-11-14T12:20:40.768Z"
             }
           }
         ]
@@ -84,7 +84,7 @@
           {
             "type": "text",
             "text": {
-              "content": "mysql-server",
+              "content": "mysqlServer",
               "link": null
             },
             "annotations": {
@@ -95,7 +95,7 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "mysql-server",
+            "plain_text": "mysqlServer",
             "href": null
           }
         ]
@@ -139,7 +139,7 @@
           {
             "type": "text",
             "text": {
-              "content": "mysql-server",
+              "content": "mysqlServer",
               "link": null
             },
             "annotations": {
@@ -150,7 +150,7 @@
               "code": false,
               "color": "default"
             },
-            "plain_text": "mysql-server",
+            "plain_text": "mysqlServer",
             "href": null
           }
         ]
