@@ -9,27 +9,26 @@ import getNotionHTML from "../../renderHtml";
 export default async function ServerComponent() {
     const post = await fetchPageBySlug("movielink");
     if (!post) notFound();
-
-    const imgUrl = post.properties.thumbnail.files[0].file.url;
-
     // Specify the directory path
     const directory = './public/movielink/';
 
-    try {
-        // Check if the directory exists, create it if not
-        if (!fs.existsSync(directory)) {
-            fs.mkdirSync(directory, { recursive: true });
-        }
+    // const imgUrl = post.properties.thumbnail.files[0].file.url;
 
-        // Download the image
-        const response = await axios.get(imgUrl, { responseType: 'arraybuffer' });
-        const imageData = Buffer.from(response.data, 'binary');
+    // try {
+    //     // Check if the directory exists, create it if not
+    //     if (!fs.existsSync(directory)) {
+    //         fs.mkdirSync(directory, { recursive: true });
+    //     }
 
-        // Save the image to a file
-        fs.writeFileSync(directory + 'movielink-thumbnail.jpg', imageData);
-    } catch (error) {
-        console.log(error);
-    }
+    //     // Download the image
+    //     const response = await axios.get(imgUrl, { responseType: 'arraybuffer' });
+    //     const imageData = Buffer.from(response.data, 'binary');
+
+    //     // Save the image to a file
+    //     fs.writeFileSync(directory + 'movielink-thumbnail.jpg', imageData);
+    // } catch (error) {
+    //     console.log(error);
+    // }
 
     const blocks = await fetchPageBlocks(post.id);
     const renderer = new NotionRenderer({
