@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
-import project from "@/public/projects.json"
+import project from "@/tmp/projects.json"
 import Link from "next/link";
 
 export default function ClientProjects() {
