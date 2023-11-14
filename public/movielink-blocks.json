@@ -1,0 +1,30 @@
+[
+  {
+    "id": "795818d8-96fc-4de3-af68-23f2e3a4760a",
+    "data": "<h1 class=\"notion-heading_1 notion-color-default\">                Trailer app with ReactJS            </h1>"
+  },
+  {
+    "id": "7049a0c6-17ba-4700-9e64-4240865a86fe",
+    "data": "<hr class=\"notion-divider\" />"
+  },
+  {
+    "id": "fb414a11-120d-432e-935f-a7a1d5b95d99",
+    "data": "<a href=\"https://movielink.netlify.app/\" target=\"_blank\" class=\"notion-bookmark\" target=\"_blank\">https://movielink.netlify.app/</a>"
+  },
+  {
+    "id": "09941d13-1ee7-4f86-95a3-e8179690f9da",
+    "data": "<h2 class=\"notion-heading_2 notion-color-default\">                Trailer App            </h2>"
+  },
+  {
+    "id": "90b63985-9a78-4c7d-b632-c4c20ec90b35",
+    "data": "<p>                <b class=\"notion-text-bold\">Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.            </p>"
+  },
+  {
+    "id": "5be0c3b9-03a4-481b-a8b8-daa21187af47",
+    "data": "<div class=\"notion-code\">                <pre><code class=\"language-typescript\">import Navbar from '@/components/Navbar'import './globals.css'import type { Metadata } from 'next'import { Inter } from 'next/font/google'import Footer from '@/components/Footer'const inter = Inter({ subsets: ['latin'] })export const metadata: Metadata = {  title: 'rosfandy.me', // {name} is a placeholder for the page name  description: 'Rosfandy Profile Web',}export default function RootLayout({  children,}: {  children: React.ReactNode}) {  return (    &#60;html lang=\"en\" className='scroll-smooth' style={{ scrollBehavior: 'smooth' }}&#62;      &#60;body className={inter.className}&#62;        &#60;div className=\"bg-black/95\"&#62;          &#60;div className=\"min-h-screen w-full\"&#62;            &#60;div id='background' className=\"min-h-screen w-full bg-cover bg-center bg-[url('./../public/bg.jpg')] \"            &#62;              {children}              &#60;Footer /&#62;            &#60;/div&#62;          &#60;/div&#62;        &#60;/div&#62;      &#60;/body&#62;    &#60;/html&#62;  )}</code></pre>                            </div>"
+  },
+  {
+    "id": "b1eada72-6781-477a-bc04-58a6908cbb3a",
+    "data": "<p>                            </p>"
+  }
+]

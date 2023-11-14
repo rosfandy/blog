@@ -1,0 +1,31 @@
+
+.notion-heading_1 {
+    @apply md:text-[40px] text-[28px] font-medium mt-4
+}
+.notion-heading_2 {
+    @apply md:text-[32px] text-[24px] font-medium mt-4
+}
+.notion-heading_3 {
+    @apply md:text-[28px] text-[24px] font-medium mt-4
+}
+p{
+    @apply font-light text-justify leading-6
+}
+.notion-text-bold{
+    @apply text-green-300
+}
+.notion-divider{
+    @apply w-full  border-white/30
+}
+.notion-code {
+    @apply px-4 py-4 rounded-md bg-slate-800/50 overflow-x-scroll cursor-pointer
+}
+.notion-text-code {
+    @apply px-2 rounded-md bg-slate-700/50 
+}
+.notion-bookmark {
+    @apply text-green-300 underline 
+}
+.notion-text-href {
+    @apply text-green-300 underline 
+}

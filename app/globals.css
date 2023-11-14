@@ -8,6 +8,31 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+
+/* Styling untuk scrollbar */
+
+::-webkit-scrollbar {
+  width: 0px; /* Lebar scrollbar */
+}
+
+/* Track (jalur) */
+::-webkit-scrollbar-track {
+  background: transparent; /* Warna jalur */
+    border-radius: 50px; /* Border radius untuk jalur */
+}
+
+/* Handle (bilah) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Warna bilah */
+   border-radius: 20px;
+      border: 7px solid transparent;
+}
+
+/* Saat dihover pada bilah */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Warna bilah saat dihover */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -16,12 +41,251 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+
+.icon-container {
+  transition: transform 2s ease; /* Adjust the duration and easing as needed */
 }
+
+.icon-container .default {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.icon-container .rotate {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.animated-container {
+  opacity: 0;
+     -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+
+.animated-container.active {
+  opacity: 1;
+}
+#background{
+  content: '';
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#background::before{
+    content: ""; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.btn-shine {
+  padding: 12px 48px;
+  color: #ffffff;
+  background: linear-gradient(to right, #4d4d4d 0, #98ED91 15%, #4d4d4d 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s infinite linear, typewriter 3s steps(44) 3s 1 normal both,
+    blinkTextCursor 1000ms infinite;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid transparent;
+  animation-delay: 0s; /* Delay before typing effect starts */
+}
+
+.bg-blur{
+    backdrop-filter: blur(2px);
+}
+
+.intro h1 {
+  color: hsl(0, 0%, 28%);
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer;
+}
+
+.intro h1 span {
+  transition: 0.5s ease-out;
+}
+.intro h1:hover span:nth-child(1) {
+  margin-right: 5px;
+}
+.intro h1:hover span:nth-child(1):after {
+  content: "'";
+}
+.intro h1:hover span:nth-child(2) {
+  margin-left: 30px;
+}
+.intro h1:hover span {
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+}
+.nav-shine {
+  color: #ffffff;
+  background: linear-gradient(to right, #4d4d4d 0, white 15%, #4d4d4d 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nav-shine 5s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid transparent;
+  animation-delay: 0s; /* Delay before typing effect starts */
+}
+
+@keyframes shine {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 500px;
+  }
+}
+@keyframes nav-shine {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 350px;
+  }
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 93%;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: hsl(0, 0%, 80%);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+
+
+
+/* Glitch */
+#glitch{
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch{
+  2%,64%{
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62%{
+    transform: translate(0,0) skew(5deg); 
+  }
+}
+
+#glitch:before,
+#glitch:after{
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+#glitch:before{
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop{
+  2%,64%{
+    transform: translate(2px,-2px);
+  }
+  4%,60%{
+    transform: translate(-2px,2px);
+  }
+  62%{
+    transform: translate(13px,-1px) skew(-13deg); 
+  }
+}
+
+#glitch:after{
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+  2%,64%{
+    transform: translate(-2px,0);
+  }
+  4%,60%{
+    transform: translate(-2px,0);
+  }
+  62%{
+    transform: translate(-22px,5px) skew(21deg); 
+  }
+}
+
+
+/* CODE */
+.container-teks svg {
+    display: block;
+    /* width: 960px;
+    height: 300px; */
+    /* margin: 0 auto; */
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 3px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #073B3A;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #0B634F;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #08A045;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: #6BBF59;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #21D375;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+  

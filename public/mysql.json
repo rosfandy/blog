@@ -1,0 +1,160 @@
+[
+  {
+    "content": "\n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Getting Started\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                Setting up a <code class=\"notion-text-code\"><b class=\"notion-text-bold\">MySQL</b></code> server using <code class=\"notion-text-code\"><b class=\"notion-text-bold\">MariaDB</b></code> on a <i class=\"notion-text-italic\">Virtual Private Server </i>(VPS) or any instances <code class=\"notion-text-code\"><b class=\"notion-text-bold\">Linux</b></code> based that allows you to host and manage databases for your applications or websites.\n            </p>\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Installation\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                <b class=\"notion-text-bold\">Update package</b> \n            </p>\n        \n            <p>\n                Used to update packages on Linux\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">apt-get update</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Install MariaDB</b>\n            </p>\n        \n            <p>\n                Used to install mariadb\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">apt-get install mariadb-server</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Install MySQL </b>\n            </p>\n        \n            <p>\n                Used to install MySQL\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">mysql_secure_installation</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Remove file directory for MySQL</b>\n            </p>\n        \n            <p>\n                By removing the contents of <code class=\"notion-text-code\"><b class=\"notion-text-bold\">/var/lib/mysql</b></code>, you are essentially starting with a clean slate, preventing any potential conflicts or issues that might arise from mixing data from different versions or configurations.\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">cd /var/lib/mysql\nrm -r *</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Re-install MySQL</b>\n            </p>\n        \n            <p>\n                To reinstall mysql (if you don't reinstall it there will usually be a problem, namely the database will reset itself)\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Restart service mysql</b>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">systemctl restart mysqld\nsystemctl restart mysql.service\nsystemctl restart mariadb</code></pre>\n                \n            </div>\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Adding Remote Access\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                <b class=\"notion-text-bold\">Login to MariaDB</b>\n            </p>\n        \n            <p>\n                Open a terminal or command prompt and type:\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">mysql -u root -p</code></pre>\n                \n            </div>\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                <b class=\"notion-text-bold\">Create the User</b>\n            </p>\n        \n            <p>\n                To create a user (for example, 'myuser') that can connect from any host, you can use the following SQL query:\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-bash\">CREATE USER 'myuser'@'%' IDENTIFIED BY 'password';</code></pre>\n                \n            </div>\n        \n            <p>\n                Replace <code class=\"notion-text-code\"><b class=\"notion-text-bold\">'myuser'</b></code> with the desired username and <code class=\"notion-text-code\"><b class=\"notion-text-bold\">'password'</b></code> with the user's password. <code class=\"notion-text-code\"><b class=\"notion-text-bold\">%</b></code><b class=\"notion-text-bold\"> </b>use for all <code class=\"notion-text-code\"><b class=\"notion-text-bold\">host</b></code><b class=\"notion-text-bold\"> </b>can access the database <code class=\"notion-text-code\"><b class=\"notion-text-bold\">server</b></code><b class=\"notion-text-bold\"> </b>, or you can specified for IP Remote access and change <code class=\"notion-text-code\"><b class=\"notion-text-bold\">%</b></code><b class=\"notion-text-bold\"> </b>with <code class=\"notion-text-code\"><b class=\"notion-text-bold\">10.10.10.10</b></code><b class=\"notion-text-bold\"> </b>origin public IP.\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                <b class=\"notion-text-bold\">Grant Permissions</b>\n            </p>\n        \n            <p>\n                Next, you'll need to grant the necessary privileges to the user. If you want this user to have all privileges, you can use:\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-shell\">GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'%';</code></pre>\n                \n            </div>\n        \n            <p>\n                This grants full access to all databases and tables. If you want to restrict the user's privileges, you can specify specific databases or tables instead of using <code class=\"notion-text-code\"><b class=\"notion-text-bold\">*.*</b></code>.  <code class=\"notion-text-code\"><b class=\"notion-text-bold\">%</b></code><b class=\"notion-text-bold\"> </b>use for all <code class=\"notion-text-code\"><b class=\"notion-text-bold\">host</b></code><b class=\"notion-text-bold\"> </b>can access the database <code class=\"notion-text-code\"><b class=\"notion-text-bold\">server</b></code><b class=\"notion-text-bold\"> </b>, or you can specified for IP Remote access and change <code class=\"notion-text-code\"><b class=\"notion-text-bold\">%</b></code><b class=\"notion-text-bold\"> </b>with <code class=\"notion-text-code\"><b class=\"notion-text-bold\">10.10.10.10</b></code><b class=\"notion-text-bold\"> </b>origin public IP.\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                <b class=\"notion-text-bold\">Reload and Apply Changes</b>\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-shell\">FLUSH PRIVILEGES;</code></pre>\n                \n            </div>\n        \n            <p>\n                \n            </p>\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Configuration\n            </h2>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                <b class=\"notion-text-bold\">Open the MariaDB Configuration File</b>\n            </p>\n        \n            <p>\n                The location of the <code class=\"notion-text-code\"><b class=\"notion-text-bold\">my.cnf</b></code> file can vary depending on your system. Common locations include <code class=\"notion-text-code\"><b class=\"notion-text-bold\">/etc/my.cnf</b></code>, <code class=\"notion-text-code\"><b class=\"notion-text-bold\">/etc/mysql/my.cnf</b></code>, or <code class=\"notion-text-code\"><b class=\"notion-text-bold\">/usr/local/etc/my.cnf</b></code>. You can use a text editor to open it. For example:\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-shell\">sudo nano /etc/my.cnf</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Find the Bind Address</b>\n            </p>\n        \n            <p>\n                Look for the line in the configuration file that starts with <code class=\"notion-text-code\"><b class=\"notion-text-bold\">bind-address</b></code>. By default, it may be set to something like <code class=\"notion-text-code\"><b class=\"notion-text-bold\">127.0.0.1</b></code>, which restricts connections to the localhost. Change it to:\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-shell\">bind-address = 0.0.0.0</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Restart MariaDB</b>\n            </p>\n        \n            <p>\n                Save the changes and exit the text editor. Then, restart the MariaDB service for the changes to take effect:\n            </p>\n        \n            <div class=\"notion-code\">\n                <pre><code class=\"language-shell\">sudo systemctl restart mariadb</code></pre>\n                \n            </div>\n        \n            <p>\n                <b class=\"notion-text-bold\">Done</b>\n            </p>\n        \n            <p>\n                Your database server can access by <i class=\"notion-text-italic\">Public IP Address</i><i class=\"notion-text-italic\"><b class=\"notion-text-bold\"> </b></i>and use <code class=\"notion-text-code\"><b class=\"notion-text-bold\">user</b></code><b class=\"notion-text-bold\"> </b>access to database server.\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                This article was made using <a href=\"http://notion.so/\" class=\"notion-text-href\">notion.so</a> ❣️\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        ",
+    "properties": {
+      "Tags": {
+        "id": "%60YN%5E",
+        "type": "multi_select",
+        "multi_select": [
+          {
+            "id": "722b5ecb-7d66-4c0d-95cb-046264c755f3",
+            "name": "backend",
+            "color": "blue"
+          },
+          {
+            "id": "d8f2074f-2c33-49bc-99f6-41d55b2d0eca",
+            "name": "mysql",
+            "color": "green"
+          },
+          {
+            "id": "c4991554-5689-4c3c-93df-0ad5ee2aec8c",
+            "name": "server",
+            "color": "green"
+          }
+        ]
+      },
+      "path": {
+        "id": "e%3CJu",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "mysql-server",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "mysql-server",
+            "href": null
+          }
+        ]
+      },
+      "Created by": {
+        "id": "lt%3BJ",
+        "type": "created_by",
+        "created_by": {
+          "object": "user",
+          "id": "a3bf067d-0428-4d79-ba49-8f16f0b562b2"
+        }
+      },
+      "thumbnail": {
+        "id": "ob%60s",
+        "type": "files",
+        "files": [
+          {
+            "name": "269-2693188_today-mysql-mariadb.png",
+            "type": "file",
+            "file": {
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/1d801760-ea69-4bf0-97c6-68a17ef6d128/269-2693188_today-mysql-mariadb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231017%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231017T225253Z&X-Amz-Expires=3600&X-Amz-Signature=f2aee705cccde08958f4e6f350670157927b6122ecdcf658537fcddcc2e78e72&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-10-17T23:52:53.214Z"
+            }
+          }
+        ]
+      },
+      "Status": {
+        "id": "qrai",
+        "type": "status",
+        "status": {
+          "id": "K[FO",
+          "name": "Published",
+          "color": "green"
+        }
+      },
+      "Slug": {
+        "id": "tg%3B%3E",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "mysql-server",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "mysql-server",
+            "href": null
+          }
+        ]
+      },
+      "title": {
+        "id": "zG~e",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Create MySQL server using Mariadb over VPS",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "Create MySQL server using Mariadb over VPS",
+            "href": null
+          }
+        ]
+      },
+      "createdAt": {
+        "id": "~%3C%7BT",
+        "type": "date",
+        "date": {
+          "start": "2023-10-14",
+          "end": null,
+          "time_zone": null
+        }
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "mysql-server",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "mysql-server",
+            "href": null
+          }
+        ]
+      }
+    }
+  }
+]

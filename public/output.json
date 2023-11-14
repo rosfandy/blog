@@ -1,0 +1,100 @@
+[
+  {
+    "content": "\n            <h1 class=\"notion-heading_1 notion-color-default\">\n                Judul 1\n            </h1>\n        \n            <hr class=\"notion-divider\" />\n        \n            <h2 class=\"notion-heading_2 notion-color-default\">\n                Trailer App\n            </h2>\n        \n            <p>\n                IYUZ TAEK\n            </p>\n        \n            <p>\n                \n            </p>\n        ",
+    "properties": {
+      "Tags": {
+        "id": "%60YN%5E",
+        "type": "multi_select",
+        "multi_select": [
+          {
+            "id": "02b74798-a13b-4321-aacc-7a57a864e7bd",
+            "name": "project",
+            "color": "pink"
+          },
+          {
+            "id": "12d12bac-c37a-4726-9b1d-23409dff644d",
+            "name": "frontend",
+            "color": "yellow"
+          }
+        ]
+      },
+      "Created by": {
+        "id": "lt%3BJ",
+        "type": "created_by",
+        "created_by": {
+          "object": "user",
+          "id": "a3bf067d-0428-4d79-ba49-8f16f0b562b2"
+        }
+      },
+      "thumbnail": {
+        "id": "ob%60s",
+        "type": "url",
+        "url": null
+      },
+      "Status": {
+        "id": "qrai",
+        "type": "status",
+        "status": {
+          "id": "K[FO",
+          "name": "Published",
+          "color": "green"
+        }
+      },
+      "Slug": {
+        "id": "tg%3B%3E",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "movielink",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "movielink",
+            "href": null
+          }
+        ]
+      },
+      "createdAt": {
+        "id": "~%3C%7BT",
+        "type": "date",
+        "date": {
+          "start": "2023-10-14",
+          "end": null,
+          "time_zone": null
+        }
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "movielink",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "movielink",
+            "href": null
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "content": "\n            <h1 class=\"notion-heading_1 notion-color-default\">\n                About Project\n            </h1>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                This Mobile Project is dedicated to \"Program Kreativitas Mahasiswa\" ( PKM-KC ) ITS 2023. This application is used to monitoring the condition of diapers in the elderly using an Electronic Nose module. \n            </p>\n        \n            <p>\n                Bedwetting Detection Application Module Using an <code class=\"notion-text-code\"><b class=\"notion-text-bold\">Electronic Nose</b></code> Integrated with the <code class=\"notion-text-code\"><b class=\"notion-text-bold\">Internet of Things</b></code> is an application module that can be used to determine whether diapers are dry, wet and very wet based on parameters from temperature, gas and humidity sensors.\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Disclaimer ✨\n            </h3>\n        \n            <p>\n                This app may still have lots of bugs and is not best practice in creating mobile apps projects. This project is solely for prototyping needs in the <a href=\"https://simpkm.its.ac.id/\" class=\"notion-text-href\">PKM KC ITS 2023</a>. Check out the <a href=\"https://github.com/rosfandy/enfie-app\" class=\"notion-text-href\">Source Code </a>!\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Framework\n            </h3>\n        \n            <p>\n                Framework used in this project are <a href=\"http://flutter.dev/\" class=\"notion-text-href\">Flutter</a> and using programming languange <a href=\"http://dart.dev/\" class=\"notion-text-href\">Dart</a>\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Prototipe\n            </h3>\n        \n            <p>\n                Explore my user-friendly Flutter prototype at <a href=\"http://bit.ly/prototipe-enfie\" class=\"notion-text-href\">Enfie Prototipe</a>. This project showcases the potential of modern app development with a clean and intuitive interface. Give it a try and witness the future of mobile applications.\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Demo\n            </h3>\n        \n            <p>\n                Feel free to visit my demo app at [<a href=\"https://www.loom.com/share/8c9254cda16e421d984b38972a4b5ced?sid=f5aecbbc-e596-4527-b7cd-ef81b8f477c1\" class=\"notion-text-href\">Demo App</a>]. Check out its features and let me know what you think!\n            </p>\n        \n            <h3 class=\"notion-heading_3 notion-color-default\">\n                Snapshots\n            </h3>\n        \n            <figure class=\"notion-image\">\n                <img src=\"https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/5e2eedc0-78ac-4cba-b62c-d7faa8c49ca1/Frame_18.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231014%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231014T114849Z&X-Amz-Expires=3600&X-Amz-Signature=3f6334aba0a09ff82c8ca6dc7c23708c8b08ab24da32b6bd3b3593a27f1e62a5&X-Amz-SignedHeaders=host&x-id=GetObject\" />\n                \n            </figure>\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        \n            <p>\n                This article was made using <a href=\"http://notion.so/\" class=\"notion-text-href\">notion.so</a> ❣️\n            </p>\n        \n            <p>\n                \n            </p>\n        \n            <hr class=\"notion-divider\" />\n        \n            <p>\n                \n            </p>\n        ",
+    "properties": {
+      "Tags": {
+        "id": "%60YN%5E",
+        "type": "multi_select",
+        "multi_select": [
+          {
+            "id": "d15b398a-4f15-4859-9b06-c5cff0f5fb54",
+            "name": "flutter",
+            "color": "orange"
+          },
+          {
+            "id": "c5847398-a0ad-4674-8797-8af761540666",
+            "name": "mobile",
+            "color": "red"
+          }
+        ]
+      },
+      "path": {
+        "id": "e%3CJu",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "enfie",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "enfie",
+            "href": null
+          }
+        ]
+      },
+      "Created by": {
+        "id": "lt%3BJ",
+        "type": "created_by",
+        "created_by": {
+          "object": "user",
+          "id": "a3bf067d-0428-4d79-ba49-8f16f0b562b2"
+        }
+      },
+      "thumbnail": {
+        "id": "ob%60s",
+        "type": "files",
+        "files": [
+          {
+            "name": "logo-enfie.png",
+            "type": "file",
+            "file": {
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/3183ffae-6204-4786-bf28-cabcc6f64247/logo-enfie.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231014%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231014T114846Z&X-Amz-Expires=3600&X-Amz-Signature=e5f564f0e159d2161ff71ab5939472c0617e4c568be3d28ae483b46494765bf0&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-10-14T12:48:46.595Z"
+            }
+          }
+        ]
+      },
+      "Status": {
+        "id": "qrai",
+        "type": "status",
+        "status": {
+          "id": "K[FO",
+          "name": "Published",
+          "color": "green"
+        }
+      },
+      "Slug": {
+        "id": "tg%3B%3E",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "enfie",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "enfie",
+            "href": null
+          }
+        ]
+      },
+      "title": {
+        "id": "zG~e",
+        "type": "rich_text",
+        "rich_text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "PKM Project Enfie",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "PKM Project Enfie",
+            "href": null
+          }
+        ]
+      },
+      "createdAt": {
+        "id": "~%3C%7BT",
+        "type": "date",
+        "date": {
+          "start": "2023-10-14",
+          "end": null,
+          "time_zone": null
+        }
+      },
+      "Name": {
+        "id": "title",
+        "type": "title",
+        "title": [
+          {
+            "type": "text",
+            "text": {
+              "content": "enfie",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            },
+            "plain_text": "enfie",
+            "href": null
+          }
+        ]
+      }
+    }
+  }
+]
