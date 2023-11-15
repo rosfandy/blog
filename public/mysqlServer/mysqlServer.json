@@ -62,8 +62,8 @@
             "name": "mariadb-and-mysql (1).png",
             "type": "file",
             "file": {
-              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/9ecf47df-59a7-48a1-af8d-275a6e071515/mariadb-and-mysql_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231114T112040Z&X-Amz-Expires=3600&X-Amz-Signature=d74e8d45f2c1c8f1132b7d5a6965904fc9f56bc17223ffecd357da5ea78709ce&X-Amz-SignedHeaders=host&x-id=GetObject",
-              "expiry_time": "2023-11-14T12:20:40.768Z"
+              "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/feb3e241-4a24-49ca-97bd-e9294678876f/9ecf47df-59a7-48a1-af8d-275a6e071515/mariadb-and-mysql_%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20231115%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231115T043812Z&X-Amz-Expires=3600&X-Amz-Signature=e980d7a48da97e418e05204cc799c0d7d988a607befa135191f5f4f4f65dfcb5&X-Amz-SignedHeaders=host&x-id=GetObject",
+              "expiry_time": "2023-11-15T05:38:12.305Z"
             }
           }
         ]

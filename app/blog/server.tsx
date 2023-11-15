@@ -1,4 +1,3 @@
-// import Navbar from "@/components/Navbar";
 import { fetchPages } from "@/lib/notion";
 import { notFound } from "next/navigation";
 import fs from 'fs';

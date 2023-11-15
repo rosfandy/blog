@@ -18,8 +18,10 @@ const getNotionHTML = async (blocks: any[], renderer: Renderer, directory: Strin
             const imgSrc = $('figure.notion-image img').attr('src');
 
             if (imgSrc) {
+                const path = `/${directory.split('/')[2]}`
                 const newSrc = `/dataImg-${index}.jpg`; // Replace with your new URL
-                $('figure.notion-image img').attr('src', newSrc);
+                console.log('path: ', path + newSrc)
+                $('figure.notion-image img').attr('src', path + newSrc);
 
                 try {
                     // Download the image

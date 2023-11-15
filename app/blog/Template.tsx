@@ -37,6 +37,7 @@ export default function LayoutProject({ path, datas, img }: { path: string[], da
             });
 
         }
+
         AOS.init({});
         hljs.highlightAll();
 

@@ -10,10 +10,8 @@ export default function Page() {
     return (
         <div className="">
             <div
-
                 className="">
                 <LayoutProject path={path} datas={JSON.stringify(datas)} img={url} />
-
             </div>
         </div>
     )
